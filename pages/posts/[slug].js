@@ -9,6 +9,7 @@ import path from 'path'
 import CustomLink from '../../components/CustomLink'
 import Layout from '../../components/Layout'
 import { postFilePaths, POSTS_PATH } from '../../utils/mdxUtils'
+import {Heading, Text} from '@chakra-ui/react'
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -21,11 +22,41 @@ const components = {
   // See the notes in README.md for more details.
   TestComponent: dynamic(() => import('../../components/TestComponent')),
   Head,
+  p: (props) => (
+    <Text as="p" my="8">
+      {props.children}
+    </Text>
+  ),
+  h1: (props) => (
+    <Heading as="h1" size="4xl" my="8">
+      {props.children}
+    </Heading>
+  ),
+  h2: (props) => (
+    <Heading as="h2" size="2xl" my="8">
+      {props.children}
+    </Heading>
+  ),
+  h3: (props) => (
+    <Heading as="h3" size="xl" my="8">
+      {props.children}
+    </Heading>
+  ),
+  h4: (props) => (
+    <Heading as="h3" size="lg" my="8">
+      {props.children}
+    </Heading>
+  ),
 }
 
 export default function PostPage({ source, frontMatter }) {
   return (
+    
     <Layout>
+      <Head>
+        <title>{frontMatter.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <header>
         <nav>
           <Link href="/">
@@ -34,27 +65,15 @@ export default function PostPage({ source, frontMatter }) {
         </nav>
       </header>
       <div className="post-header">
-        <h1>{frontMatter.title}</h1>
+        <Heading as="h1" size="4xl" mt="4" mb="10">{frontMatter.title}</Heading>
         {frontMatter.description && (
           <p className="description">{frontMatter.description}</p>
         )}
       </div>
+      <img src={frontMatter.cover_image}></img>
       <main>
         <MDXRemote {...source} components={components} />
       </main>
-
-      <style jsx>{`
-        .post-header h1 {
-          margin-bottom: 0;
-        }
-
-        .post-header {
-          margin-bottom: 2rem;
-        }
-        .description {
-          opacity: 0.6;
-        }
-      `}</style>
     </Layout>
   )
 }
