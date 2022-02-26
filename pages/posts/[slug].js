@@ -84,6 +84,7 @@ export default function PostPage({ source, frontMatter }) {
             objectFit="cover"
             layout="fill"
             src={frontMatter.cover_image}
+            alt={frontMatter.title}
           />
         </Flex>
         <main>

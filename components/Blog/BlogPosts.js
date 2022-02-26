@@ -1,16 +1,13 @@
-import matter from "gray-matter";
-import Link from "next/link";
 import {
   Heading,
-  Stack,
-  Box,
   LinkBox,
-  Grid,
   GridItem,
   LinkOverlay,
   Text,
   SimpleGrid,
+  Flex,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 export default function BlogPosts({ posts }) {
   return (
@@ -22,7 +19,14 @@ export default function BlogPosts({ posts }) {
         {posts.map((post) => (
           <GridItem key={`/posts/${post.filePath}`}>
             <LinkBox as="article">
-              <img layout="fill" src={post.data.cover_image} />
+              <Flex position="relative" height={{ base: "300", md: "200" }}>
+                <Image
+                  objectFit="cover"
+                  layout="fill"
+                  src={post.data.cover_image}
+                  alt={post.data.title}
+                />
+              </Flex>
 
               <LinkOverlay
                 href={`/posts/${post.filePath.replace(/\.mdx?$/, "")}`}
