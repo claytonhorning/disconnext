@@ -10,7 +10,7 @@ import path from "path";
 import CustomLink from "../../components/CustomLink";
 import Layout from "../../components/Layout";
 import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
-import { Heading, Text, Box, Flex, Link } from "@chakra-ui/react";
+import { Heading, Text, Flex, Link } from "@chakra-ui/react";
 import WithSubnavigation from "../../components/Navbar";
 import Footer from "../../components/Footer";
 

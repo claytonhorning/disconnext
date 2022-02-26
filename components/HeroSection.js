@@ -5,19 +5,15 @@ import {
   Text,
   Stack,
   FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   InputGroup,
   InputLeftElement,
-  InputRightElement,
   AvatarGroup,
   Avatar,
-  Center,
 } from "@chakra-ui/react";
 
 import { EmailIcon } from "@chakra-ui/icons";
+import ContactForm from "./ContactForm";
 
 export default function HeroSection() {
   const Mask = ({ mask, children }) => (
@@ -58,29 +54,7 @@ export default function HeroSection() {
           identities from the online world and be apart of the most positive
           online community.
         </Text>
-        <FormControl>
-          <InputGroup size="lg">
-            <InputLeftElement children={<EmailIcon color="gray.300" />} />
-            <Input
-              rounded="none"
-              variant="filled"
-              type="email"
-              placeholder="Email Address"
-              size="lg"
-            />
-
-            <Box
-              width="100px"
-              as="button"
-              _hover={{ bg: "black" }}
-              color="white"
-              bg="blue.400"
-              transition="all 0.2s cubic-bezier(.08,.52,.52,1)"
-            >
-              Join Us
-            </Box>
-          </InputGroup>
-        </FormControl>
+        <ContactForm />
         <Stack direction="row" align="center" text="sm" fontWeight="bold">
           <AvatarGroup size="sm">
             <Avatar name="Ryan Florence" src="https://bit.ly/ryan-florence" />
