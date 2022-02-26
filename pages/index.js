@@ -18,6 +18,7 @@ import Image from "next/image";
 import WithSubnavigation from "../components/Navbar";
 import BlogPosts from "../components/Blog/BlogPosts";
 import HeroSection from "../components/HeroSection";
+import Footer from "../components/Footer";
 
 export default function Index({ posts }) {
   return (
@@ -27,6 +28,7 @@ export default function Index({ posts }) {
         <HeroSection />
         <BlogPosts posts={posts} />
       </Layout>
+      <Footer />
     </>
   );
 }

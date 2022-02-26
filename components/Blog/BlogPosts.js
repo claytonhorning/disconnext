@@ -18,7 +18,7 @@ export default function BlogPosts({ posts }) {
       <Heading py="50" align="center" as="h2" size="xl">
         From the Blog
       </Heading>
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing="40px">
+      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} spacing="10" mb="20">
         {posts.map((post) => (
           <GridItem key={`/posts/${post.filePath}`}>
             <LinkBox as="article">

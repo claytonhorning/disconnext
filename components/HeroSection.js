@@ -50,8 +50,8 @@ export default function HeroSection() {
         spacing="6"
       >
         <Heading as="h1" size="2xl">
-          A community focused on combating the negative effects of social media
-          and harnessing the good
+          A community combating the negative effects of social media &
+          harnessing the good
         </Heading>
         <Text>
           Learn from others experiences about how they have disconnected their
