@@ -10,7 +10,7 @@ import path from "path";
 import CustomLink from "../../components/CustomLink";
 import Layout from "../../components/Layout";
 import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
-import { Heading, Text, Flex, Link } from "@chakra-ui/react";
+import { Heading, Text, Flex, Link, Box } from "@chakra-ui/react";
 import WithSubnavigation from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Message from "../../components/Messages/Message";
@@ -58,7 +58,12 @@ export default function PostPage({ source, frontMatter }) {
   return (
     <>
       <WithSubnavigation />
-      <Layout>
+      <Box
+        mx={{ base: "5", md: "10", lg: "auto" }}
+        mt="10"
+        mb="20"
+        maxW="50rem"
+      >
         <Head>
           <title>{frontMatter.title}</title>
           <meta
@@ -92,7 +97,7 @@ export default function PostPage({ source, frontMatter }) {
         <main>
           <MDXRemote {...source} components={components} />
         </main>
-      </Layout>
+      </Box>
       <Footer />
     </>
   );
