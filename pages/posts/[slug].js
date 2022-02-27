@@ -58,12 +58,7 @@ export default function PostPage({ source, frontMatter }) {
   return (
     <>
       <WithSubnavigation />
-      <Box
-        mx={{ base: "5", md: "10", lg: "auto" }}
-        mt="10"
-        mb="20"
-        maxW="50rem"
-      >
+      <Flex direction={"column"} px="5" mx="auto" mt="10" mb="20" maxW="50rem">
         <Head>
           <title>{frontMatter.title}</title>
           <meta
@@ -97,7 +92,7 @@ export default function PostPage({ source, frontMatter }) {
         <main>
           <MDXRemote {...source} components={components} />
         </main>
-      </Box>
+      </Flex>
       <Footer />
     </>
   );
