@@ -44,6 +44,7 @@ export default function HeroSection() {
         maxW={{ md: "50%", base: "100%" }}
         direction={"column"}
         spacing="6"
+        mr="10"
       >
         <Heading as="h1" size="2xl">
           A community combating the negative effects of social media &

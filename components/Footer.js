@@ -1,4 +1,5 @@
 import { Box, Flex, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -11,9 +12,11 @@ export default function Footer() {
         spacing="2"
         color="white"
       >
-        <Text fontSize="lg" fontWeight="bold">
-          Disconnext
-        </Text>
+        <Image
+          height="30px"
+          width="150px"
+          src="/assets/images/logo-light.svg"
+        />
         <Text fontSize="sm">&copy; 2022 Disconnext. All rights reserved.</Text>
       </Stack>
     </Box>

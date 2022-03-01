@@ -30,7 +30,7 @@ export default function WithSubnavigation() {
     <Box>
       <Flex
         bg={useColorModeValue("black", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
+        color={useColorModeValue("white", "white")}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
@@ -58,7 +58,7 @@ export default function WithSubnavigation() {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             fontWeight={"bold"}
-            color={useColorModeValue("gray.800", "white")}
+            color={useColorModeValue("white", "white")}
           >
             <Image
               height="30px"
@@ -84,6 +84,7 @@ export default function WithSubnavigation() {
             fontWeight={400}
             variant={"link"}
             href={"#"}
+            color="white"
           >
             Sign In
           </Button>
@@ -111,8 +112,8 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const linkColor = useColorModeValue("white", "gray.900");
+  const linkHoverColor = useColorModeValue("gray.500", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
