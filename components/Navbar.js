@@ -15,6 +15,7 @@ import {
   useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
+import Image from "next/image";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -28,7 +29,7 @@ export default function WithSubnavigation() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
+        bg={useColorModeValue("black", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -59,7 +60,11 @@ export default function WithSubnavigation() {
             fontWeight={"bold"}
             color={useColorModeValue("gray.800", "white")}
           >
-            Disconnext
+            <Image
+              height="30px"
+              width="150px"
+              src="/assets/images/logo-light.svg"
+            />
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -111,7 +116,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack align="center" direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
