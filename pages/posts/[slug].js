@@ -14,6 +14,7 @@ import { Heading, Text, Flex, Link, Box } from "@chakra-ui/react";
 import WithSubnavigation from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Message from "../../components/Messages/Message";
+import Summary from "../../components/Summary";
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -26,6 +27,7 @@ const components = {
   // See the notes in README.md for more details.
   TestComponent: dynamic(() => import("../../components/TestComponent")),
   Message,
+  Summary,
   blockquote: (props) => (
     <div className="blockquote">
       <style jsx>{`
