@@ -26,6 +26,20 @@ const components = {
   // See the notes in README.md for more details.
   TestComponent: dynamic(() => import("../../components/TestComponent")),
   Message,
+  blockquote: (props) => (
+    <div className="blockquote">
+      <style jsx>{`
+        .blockquote {
+          background: #f9f9f9;
+          border-left: 10px solid #ccc;
+          margin: 1.5em 10px;
+          padding: 1em 10px 0.1em 10px;
+          background: #f9f9f9;
+        }
+      `}</style>
+      {props.children}
+    </div>
+  ),
   Head,
   p: (props) => (
     <Text as="p" my="8">

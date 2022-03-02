@@ -49,7 +49,7 @@ export default function WithSubnavigation() {
             icon={
               isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
             }
-            variant={"ghost"}
+            variant={"black"}
             aria-label={"Toggle Navigation"}
           />
         </Flex>
@@ -200,7 +200,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue("white", "gray.800")}
+      bg={useColorModeValue("black", "gray.800")}
       p={4}
       display={{ md: "none" }}
     >
@@ -226,10 +226,7 @@ const MobileNavItem = ({ label, children, href }) => {
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-          color={useColorModeValue("gray.600", "gray.200")}
-        >
+        <Text fontWeight={600} color={useColorModeValue("white", "gray.200")}>
           {label}
         </Text>
         {children && (
