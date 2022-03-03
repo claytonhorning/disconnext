@@ -29,6 +29,7 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+next.config.js
 
 # vercel
 .vercel
@@ -37,3 +38,4 @@ yarn-error.log*
 /public/sitemap-0.xml
 /public/sitemap.xml
 /public/robots.txt
+
