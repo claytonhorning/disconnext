@@ -60,11 +60,13 @@ export default function WithSubnavigation() {
             fontWeight={"bold"}
             color={useColorModeValue("white", "white")}
           >
-            <Image
-              height="30px"
-              width="150px"
-              src="/assets/images/logo-light.svg"
-            />
+            <Link as="a" href="/">
+              <Image
+                height="20"
+                width="150"
+                src="/assets/images/logo-light.svg"
+              />
+            </Link>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>

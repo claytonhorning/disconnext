@@ -2,13 +2,11 @@ import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
 import NextLink from "next/link";
 import path from "path";
 import CustomLink from "../../components/CustomLink";
-import Layout from "../../components/Layout";
 import { postFilePaths, POSTS_PATH } from "../../utils/mdxUtils";
 import { Heading, Text, Flex, Link, Box } from "@chakra-ui/react";
 import WithSubnavigation from "../../components/Navbar";
@@ -22,10 +20,6 @@ import Summary from "../../components/Summary";
 // here.
 const components = {
   a: CustomLink,
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
-  TestComponent: dynamic(() => import("../../components/TestComponent")),
   Message,
   Summary,
   blockquote: (props) => (
@@ -73,7 +67,6 @@ const components = {
 export default function PostPage({ source, frontMatter }) {
   return (
     <>
-      <WithSubnavigation />
       <Flex direction={"column"} px="5" mx="auto" mt="10" mb="20" maxW="50rem">
         <Head>
           <title>{frontMatter.title}</title>
@@ -109,7 +102,6 @@ export default function PostPage({ source, frontMatter }) {
           <MDXRemote {...source} components={components} />
         </main>
       </Flex>
-      <Footer />
     </>
   );
 }
