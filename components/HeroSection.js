@@ -16,7 +16,7 @@ import { EmailIcon } from "@chakra-ui/icons";
 import ContactForm from "./ContactForm";
 
 export default function HeroSection() {
-  const Mask = ({ mask, children }) => (
+  const Mask = ({ children }) => (
     <Box
       style={{
         WebkitMaskImage: "url(assets/images/mask.svg)",
@@ -66,11 +66,11 @@ export default function HeroSection() {
         </Stack>
       </Stack>
       <Box mt={{ base: "10", md: "0" }}>
-        <Mask mask="url:public/assets/images/mask.svg">
+        <Mask>
           <video
-            autoPlay="true"
-            muted="true"
-            loop="true"
+            autoPlay={true}
+            muted={true}
+            loop={true}
             src="/assets/videos/video.mp4"
             width="350"
           ></video>

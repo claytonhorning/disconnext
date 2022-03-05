@@ -1,6 +1,8 @@
 import React from "react";
 import { ChakraProvider, CSSReset, extendTheme } from "@chakra-ui/react";
 import Head from "next/head";
+import WithSubnavigation from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const theme = extendTheme({
   fonts: {
@@ -13,7 +15,6 @@ const App = ({ Component, pageProps }) => {
     <ChakraProvider theme={theme}>
       <CSSReset />
       <Head>
-        <title>Disconnext</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
           rel="apple-touch-icon"
@@ -34,7 +35,9 @@ const App = ({ Component, pageProps }) => {
         />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
+      <WithSubnavigation />
       <Component {...pageProps} />
+      <Footer />
     </ChakraProvider>
   );
 };
