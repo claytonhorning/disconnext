@@ -6,9 +6,9 @@ import {
   SimpleGrid,
   GridItem,
 } from "@chakra-ui/react";
-import VideoResponse from "../components/VideoResponse";
+import VideoResponse from "../../components/VideoResponse";
 
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 
 export default function Community({ data }) {
   const sortedSubmissions = data.sort((a, b) => {
@@ -28,6 +28,9 @@ export default function Community({ data }) {
                 userAnswered={sub.userAnswered}
                 video={sub.videoResponse}
                 date={sub.date}
+                id={sub._id}
+                height="400px"
+                width="300px"
               />
             </GridItem>
           ))}
@@ -38,7 +41,7 @@ export default function Community({ data }) {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch("http://localhost:3000/api/submissions");
+  const res = await fetch(`${process.env.DB_HOST}/api/submissions`);
   const { data } = await res.json();
 
   if (!data) {

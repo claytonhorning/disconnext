@@ -1,5 +1,5 @@
-import { Box, Text, Stack, Flex, Avatar } from "@chakra-ui/react";
-import ReactPlayer from "react-player";
+import { Box, Text, Stack, Flex, Avatar, Link } from "@chakra-ui/react";
+import NextLink from "next/link";
 
 export default function VideoResponse({
   question,
@@ -7,48 +7,61 @@ export default function VideoResponse({
   userAnswered,
   video,
   date,
+  id,
+  height,
+  width,
 }) {
-  let dateArray = date.split(" ");
-  let month = dateArray[1];
-  let day = dateArray[2];
-  let year = dateArray[3];
-  let dateString = `${month} ${day} ${year}`;
+  const options = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const formattedDate = new Date(date).toLocaleDateString("en-US", options);
 
   return (
-    <Box bg="white" width="320px" borderRadius={"10"} boxShadow="lg">
+    <Box bg="white" width={width} borderRadius={"10"} boxShadow="lg">
       <Stack pt="2" px="4" justifyContent={"space-between"} direction={"row"}>
         <Stack align="center" direction={"row"}>
           <Avatar size="2xs" src="https://bit.ly/broken-link" />
           <Text fontSize={"xs"}>{userSubmitted}</Text>
         </Stack>
 
-        <Text fontSize={"xs"}>{dateString}</Text>
+        <Text fontSize={"xs"}>{formattedDate}</Text>
       </Stack>
 
       <Text fontWeight={"semibold"} px="4" my="2">
         {question}
       </Text>
-      <Box height="400px" width="320px">
+      <Box height={height} width={width}>
         <video
           style={{
             height: "100%",
             width: "100%",
             objectFit: "cover",
-            borderBottomLeftRadius: "10px",
-            borderBottomRightRadius: "10px",
           }}
           src={video}
           controls={true}
         />
-        {/* <Text
-          color="white"
-          position="relative"
-          ml="4"
-          mt="-30px"
-          fontSize={"sm"}
-        >
-          Response from {userAnswered}
-        </Text> */}
+      </Box>
+      <Box
+        bg="black"
+        color="white"
+        justify="center"
+        p="4"
+        borderBottomRadius={"10"}
+      >
+        <Stack direction="row" justify={"space-between"}>
+          <Text fontSize={"xs"}>Response - {userAnswered}</Text>
+          <NextLink href={"/submissions/" + id} passHref>
+            <Link
+              color="blue.200"
+              _hover={{ textDecoration: "underline" }}
+              fontSize={"xs"}
+            >
+              See post
+            </Link>
+          </NextLink>
+        </Stack>
       </Box>
     </Box>
   );

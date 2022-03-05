@@ -280,7 +280,7 @@ const NAV_ITEMS = [
   //   ],
   // },
   {
-    label: "Blog",
-    href: "#blog",
+    label: "Community",
+    href: "../submissions",
   },
 ];

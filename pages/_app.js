@@ -15,7 +15,6 @@ const App = ({ Component, pageProps }) => {
     <ChakraProvider theme={theme}>
       <CSSReset />
       <Head>
-        <title>Disconnext</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
           rel="apple-touch-icon"
