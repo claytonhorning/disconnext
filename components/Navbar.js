@@ -283,4 +283,8 @@ const NAV_ITEMS = [
     label: "Community",
     href: "../submissions",
   },
+  {
+    label: "Blog",
+    href: "../posts",
+  },
 ];
