@@ -34,6 +34,7 @@ const App = ({ Component, pageProps }) => {
           href="/assets/favicon/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
+        <title>Disconnext</title>
       </Head>
       <WithSubnavigation />
       <Component {...pageProps} />
