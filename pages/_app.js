@@ -5,6 +5,8 @@ import WithSubnavigation from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useRouter } from "next/router";
 
+import * as ga from "../lib/ga";
+
 const theme = extendTheme({
   fonts: {
     heading: "Montserrat, sans-serif",
