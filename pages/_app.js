@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ChakraProvider, CSSReset, extendTheme } from "@chakra-ui/react";
 import Head from "next/head";
 import WithSubnavigation from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useRouter } from "next/router";
 
 const theme = extendTheme({
   fonts: {
@@ -11,10 +12,42 @@ const theme = extendTheme({
 });
 
 const App = ({ Component, pageProps }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
   return (
     <ChakraProvider theme={theme}>
       <CSSReset />
       <Head>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
           rel="apple-touch-icon"
@@ -33,7 +66,7 @@ const App = ({ Component, pageProps }) => {
           sizes="16x16"
           href="/assets/favicon/favicon-16x16.png"
         />
-        <link rel="manifest" href="/site.webmanifest" />
+
         <title>Disconnext</title>
       </Head>
       <WithSubnavigation />
