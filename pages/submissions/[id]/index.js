@@ -15,7 +15,7 @@ const Submission = ({ data }) => {
         <meta name="description" content={data.question} />
         <meta
           property="og:url"
-          content={`http://localhost:3000/submissions/${data._id}`}
+          content={`${process.env.DB_HOST}/${data._id}`}
         />
         <meta property="og:title" content={data.question} />
         <meta property="og:type" content="video.movie" />
